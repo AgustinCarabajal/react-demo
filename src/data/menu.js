@@ -1,14 +1,14 @@
 export default [
   {
     title: 'Home',
-    url: '/'
+    url: '/home'
   },
   {
-    title: 'About',
-    url: '/about'
+    title: 'Workflow',
+    url: '/workflow'
   },
   {
-    title: 'Contact',
-    url: '/contact'
+    title: 'P&L Report',
+    url: '/report'
   },
 ]

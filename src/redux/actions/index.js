@@ -1,19 +1,22 @@
 import axios from 'axios'
 
 // Actions
-const LIBRARY_LIST_BOOKS = 'LIBRARY_LIST_BOOKS'
+const LOGIN_ACTION = 'LOGIN_ACTION'
 const LIBRARY_SHOW_BOOK = 'LIBRARY_SHOW_BOOK'
 
-axios.create({
-  baseURL: `http://localhost:3000`
-})
-
-export function loadBooks() {
+export function login({ user, password }) {
   return {
-    type: LIBRARY_LIST_BOOKS,
-    payload: axios.get(`${axios.baseURL}/api/posts`)
-      .then(response => {
-        console.log(response.data)
+    type: LOGIN_ACTION,
+    payload: axios(
+      {
+        method:'post',
+        url:'login',
+        baseURL: process.env.REACT_APP_API_URL,
+        data: {
+          user: user,
+          password: password
+        }
+      }).then(response => {
         return response.data
       })
       .catch(error => {
@@ -25,7 +28,7 @@ export function loadBooks() {
 export function showBook() {
   return {
     type: LIBRARY_SHOW_BOOK,
-    payload: axios.get(`${axios.baseURL}/api/post`)
+    payload: axios.get(`${process.env.REACT_APP_API_URL}/api/post`)
       .then(response => {
         console.log(response.data)
         return response.data

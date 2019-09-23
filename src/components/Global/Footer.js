@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './css/Footer.css';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import './css/Footer.css'
 
 class Footer extends Component {
 
@@ -13,11 +13,13 @@ class Footer extends Component {
     const { copyright } = this.props
 
     return (
-      <div className="Footer">
-        <p>{ copyright }</p>
-      </div>
-    );
+      <footer id="sticky-footer" className="py-4 text-black-50">
+        <div className="container text-center">
+          <small>{ copyright }</small>
+        </div>
+      </footer>
+    )
   }
 }
 
-export default Footer;
+export default Footer
