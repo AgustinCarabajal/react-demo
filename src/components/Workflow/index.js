@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import items from '../../data/menu'
+import Actions from '../Actions'
 
 import '../Global/css/Main.css'
 // Bootstrap
@@ -49,6 +50,381 @@ class About extends Component {
       assigned: false,
       delegated: true
     })
+  }
+
+  getTableData() {
+    return {
+      columns: [
+        {
+          label: 'Route Delegated',
+          field: 'route',
+          sort: 'asc',
+          width: 250
+        },
+        {
+          label: 'Task Name',
+          field: 'task',
+          sort: 'asc',
+          width: 270
+        },
+        {
+          label: 'Delegated To',
+          field: 'delegated',
+          sort: 'asc',
+          width: 250
+        },
+        {
+          label: 'Actions',
+          field: 'actions',
+          sort: 'asc',
+          width: 100
+        }
+      ],
+      rows: [
+        {
+          name: 'Tiger Nixon',
+          task: 'System Architect',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Garrett Winters',
+          task: 'Accountant',
+          delegated: 'Tokyo',
+          actions: <Actions />
+        },
+        {
+          name: 'Ashton Cox',
+          task: 'Junior Technical Author',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Cedric Kelly',
+          task: 'Senior Javascript Developer',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Airi Satou',
+          task: 'Accountant',
+          delegated: 'Tokyo',
+          actions: <Actions />
+        },
+        {
+          name: 'Brielle Williamson',
+          task: 'Integration Specialist',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Herrod Chandler',
+          task: 'Sales Assistant',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Rhona Davidson',
+          task: 'Integration Specialist',
+          delegated: 'Tokyo',
+          actions: <Actions />
+        },
+        {
+          name: 'Colleen Hurst',
+          task: 'Javascript Developer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Sonya Frost',
+          task: 'Software Engineer',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Jena Gaines',
+          task: 'Office Manager',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Quinn Flynn',
+          task: 'Support Lead',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Charde Marshall',
+          task: 'Regional Director',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Haley Kennedy',
+          task: 'Senior Marketing Designer',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Tatyana Fitzpatrick',
+          task: 'Regional Director',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Michael Silva',
+          task: 'Marketing Designer',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Paul Byrd',
+          task: 'Chief Financial Officer (CFO)',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Gloria Little',
+          task: 'Systems Administrator',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Bradley Greer',
+          task: 'Software Engineer',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Dai Rios',
+          task: 'Personnel Lead',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Jenette Caldwell',
+          task: 'Development Lead',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Yuri Berry',
+          task: 'Chief Marketing Officer (CMO)',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Caesar Vance',
+          task: 'Pre-Sales Support',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Doris Wilder',
+          task: 'Sales Assistant',
+          delegated: 'Sidney',
+          actions: <Actions />
+        },
+        {
+          name: 'Angelica Ramos',
+          task: 'Chief Executive Officer (CEO)',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Gavin Joyce',
+          task: 'Developer',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Jennifer Chang',
+          task: 'Regional Director',
+          delegated: 'Singapore',
+          actions: <Actions />
+        },
+        {
+          name: 'Brenden Wagner',
+          task: 'Software Engineer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Fiona Green',
+          task: 'Chief Operating Officer (COO)',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Shou Itou',
+          task: 'Regional Marketing',
+          delegated: 'Tokyo',
+          actions: <Actions />
+        },
+        {
+          name: 'Michelle House',
+          task: 'Integration Specialist',
+          delegated: 'Sidney',
+          actions: <Actions />
+        },
+        {
+          name: 'Suki Burks',
+          task: 'Developer',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Prescott Bartlett',
+          task: 'Technical Author',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Gavin Cortez',
+          task: 'Team Leader',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Martena Mccray',
+          task: 'Post-Sales support',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Unity Butler',
+          task: 'Marketing Designer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Howard Hatfield',
+          task: 'Office Manager',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Hope Fuentes',
+          task: 'Secretary',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Vivian Harrell',
+          task: 'Financial Controller',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Timothy Mooney',
+          task: 'Office Manager',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Jackson Bradshaw',
+          task: 'Director',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Olivia Liang',
+          task: 'Support Engineer',
+          delegated: 'Singapore',
+          actions: <Actions />
+        },
+        {
+          name: 'Bruno Nash',
+          task: 'Software Engineer',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Sakura Yamamoto',
+          task: 'Support Engineer',
+          delegated: 'Tokyo',
+          actions: <Actions />
+        },
+        {
+          name: 'Thor Walton',
+          task: 'Developer',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Finn Camacho',
+          task: 'Support Engineer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Serge Baldwin',
+          task: 'Data Coordinator',
+          delegated: 'Singapore',
+          actions: <Actions />
+        },
+        {
+          name: 'Zenaida Frank',
+          task: 'Software Engineer',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Zorita Serrano',
+          task: 'Software Engineer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Jennifer Acosta',
+          task: 'Junior Javascript Developer',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Cara Stevens',
+          task: 'Sales Assistant',
+          delegated: 'New York',
+          actions: <Actions />
+        },
+        {
+          name: 'Hermione Butler',
+          task: 'Regional Director',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Lael Greer',
+          task: 'Systems Administrator',
+          delegated: 'London',
+          actions: <Actions />
+        },
+        {
+          name: 'Jonas Alexander',
+          task: 'Developer',
+          delegated: 'San Francisco',
+          actions: <Actions />
+        },
+        {
+          name: 'Shad Decker',
+          task: 'Regional Director',
+          delegated: 'Edinburgh',
+          actions: <Actions />
+        },
+        {
+          name: 'Michael Bruce',
+          task: 'Javascript Developer',
+          delegated: 'Singapore',
+          actions: <Actions />
+        },
+        {
+          name: 'Donna Snider',
+          task: 'Customer Support',
+          delegated: 'New York',
+          actions: <Actions />
+        }
+      ]
+    }
   }
 
   render() {
@@ -108,8 +484,8 @@ class About extends Component {
                   <span className="">Connectivity issues in Cargill network</span>
                 </div> 
               }
-              { this.state.assigned && <Table key='assigned' name="HOLA" /> }
-              { this.state.delegated && <Table key='delegated' name="CHAU" /> }
+              { this.state.assigned && <Table key='assigned' data={ this.getTableData() } /> }
+              { this.state.delegated && <Table key='delegated' data={ this.getTableData() } /> }
             </div>
           </div>
         </div>
