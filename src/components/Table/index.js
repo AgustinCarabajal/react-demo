@@ -1,5 +1,5 @@
-import React from 'react';
-import { MDBDataTable } from 'mdbreact';
+import React from 'react'
+import { MDBDataTable } from 'mdbreact'
 
 class Table extends React.Component {
 
@@ -8,12 +8,14 @@ class Table extends React.Component {
     const { data } = this.props
 
     return (
-      <MDBDataTable
-        striped
-        bordered
-        hover
-        data={ data }
-      />
+      <div className="table">
+        <MDBDataTable
+          striped
+          bordered
+          hover
+          data={ data }
+        />
+      </div>
     )
   }
   

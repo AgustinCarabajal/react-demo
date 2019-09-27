@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import items from '../../data/menu'
 
+import { FaUserAlt } from 'react-icons/fa'
+
 import '../../components/Global/css/Main.css'
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -72,69 +74,71 @@ class Home extends Component {
                 </button>
               }
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                  <li className="nav-item dropdown">
-                    <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Profile
-                    </span>
-                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      { this.state && <span className="dropdown-item">{ this.state.user.ds_name }</span> }
-                      <a className="dropdown-item" href="/logout">Logout</a>
-                    </div>
-                  </li>
-                </ul>
+                { this.state &&
+                  <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li className="nav-item dropdown">
+                      <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        { this.state.user.ds_name } &nbsp;
+                        <FaUserAlt className="rounded-circle" />
+                      </span>
+                      <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a className="dropdown-item" href="/logout">Logout</a>
+                      </div>
+                    </li>
+                  </ul>
+                }
               </div>
             </nav>
             <div className="container-fluid">
               <br />
-        <div className="card text-center">
-          <div className="card-body">
-            <img className="login-image" src={logo} alt="babylon-layout" />
-            <h1 className="display-5">Welcome to CID 2.0</h1>
-            <div className="row">
-              <div className="col-md-6">
-                <a className="btn btn-primary btn-lg" href="/workflow" role="button">WORKFLOW</a>
-              </div>
-              <div className="col-md-6">
-                <a className="btn btn-primary btn-lg" href="/report" role="button">P&L REPORT</a>
-              </div>
-            </div>
-            <br />
-            <div className="row">
-              <div className="col-md-4">
-                <button className="btn btn-primary btn-lg" disabled>PLANNING MODELING</button>
-              </div>
-              <div className="col-md-4">
-                <button className="btn btn-primary btn-lg" disabled>WHAT IF SCENARIO</button>
-              </div>
-              <div className="col-md-4">
-                <button className="btn btn-primary btn-lg" disabled>BUDGET & FORECASTING</button>
-              </div>
-            </div>
-          </div>
-
-          {/* <div className="chat">
-            <button className="open-button" onClick={ this.openForm }>Chat</button>
-            <div className="chat-popup" id="myForm">
-              <form className="chat-form-container">
-                <h3>Chat</h3>
-
-                <label htmlFor="msg"><b>Message</b></label>
-                <textarea placeholder="Type message.." name="msg" required></textarea>
-                <div className="row">
-                  <div className="col-md-6">
-                    <button type="submit" className="btn btn-sm">Send</button>
+              <div className="card text-center">
+                <div className="card-body">
+                  <img className="login-image" src={logo} alt="babylon-layout" />
+                  <h1 className="display-5">Welcome to CID 2.0</h1>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <a className="btn btn-primary btn-lg" href="/workflow" role="button">WORKFLOW</a>
+                    </div>
+                    <div className="col-md-6">
+                      <a className="btn btn-primary btn-lg" href="/report" role="button">P&L REPORT</a>
+                    </div>
                   </div>
-                  <div className="col-md-6">
-                    <button type="button" className="btn cancel" onClick={ this.closeForm }>Close</button>
+                  <br />
+                  <div className="row">
+                    <div className="col-md-4">
+                      <button className="btn btn-primary btn-lg" disabled>PLANNING MODELING</button>
+                    </div>
+                    <div className="col-md-4">
+                      <button className="btn btn-primary btn-lg" disabled>WHAT IF SCENARIO</button>
+                    </div>
+                    <div className="col-md-4">
+                      <button className="btn btn-primary btn-lg" disabled>BUDGET & FORECASTING</button>
+                    </div>
                   </div>
                 </div>
-              </form>
-            </div>
-          </div> */}
-        </div>       
-        </div>       
-        </div>       
+
+                {/* <div className="chat">
+                  <button className="open-button" onClick={ this.openForm }>Chat</button>
+                  <div className="chat-popup" id="myForm">
+                    <form className="chat-form-container">
+                      <h3>Chat</h3>
+
+                      <label htmlFor="msg"><b>Message</b></label>
+                      <textarea placeholder="Type message.." name="msg" required></textarea>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <button type="submit" className="btn btn-sm">Send</button>
+                        </div>
+                        <div className="col-md-6">
+                          <button type="button" className="btn cancel" onClick={ this.closeForm }>Close</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div> */}
+              </div>       
+            </div>       
+          </div>       
         </div>       
         // </div>       
       )

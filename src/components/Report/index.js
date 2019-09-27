@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import items from '../../data/menu'
 
+import { FaUserAlt } from 'react-icons/fa'
+
 import '../Global/css/Main.css'
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -54,17 +56,19 @@ class Contact extends Component {
             </button>
           }
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Profile
-                </span>
-                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  { this.state && <span className="dropdown-item">{ this.state.user.ds_name }</span> }
-                  <a className="dropdown-item" href="/logout">Logout</a>
-                </div>
-              </li>
-            </ul>
+            { this.state &&
+              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li className="nav-item dropdown">
+                  <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    { this.state.user.ds_name } &nbsp;
+                    <FaUserAlt className="rounded-circle" />
+                  </span>
+                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="/logout">Logout</a>
+                  </div>
+                </li>
+              </ul>
+            }
           </div>
         </nav>
         <div className="container-fluid">

@@ -3,6 +3,9 @@ import { Redirect, Link } from 'react-router-dom'
 import items from '../../data/menu'
 import Actions from '../Actions'
 
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBCardTitle } from 'mdbreact'
+import { FaUserAlt } from 'react-icons/fa'
+
 import '../Global/css/Main.css'
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -452,17 +455,19 @@ class About extends Component {
             </button>
           }
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Profile
-                </span>
-                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  { this.state && <span className="dropdown-item">{ this.state.user.ds_name }</span> }
-                  <a className="dropdown-item" href="/logout">Logout</a>
-                </div>
-              </li>
-            </ul>
+            { this.state &&
+              <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li className="nav-item dropdown">
+                  <span className="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    { this.state.user.ds_name } &nbsp;
+                    <FaUserAlt className="rounded-circle" />
+                  </span>
+                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="/logout">Logout</a>
+                  </div>
+                </li>
+              </ul>
+            }
           </div>
         </nav>
         <div className="container-fluid">
@@ -484,8 +489,26 @@ class About extends Component {
                   <span className="">Connectivity issues in Cargill network</span>
                 </div> 
               }
-              { this.state.assigned && <Table key='assigned' data={ this.getTableData() } /> }
-              { this.state.delegated && <Table key='delegated' data={ this.getTableData() } /> }
+              { this.state.assigned && 
+                <MDBCard>
+                  <MDBCardHeader className="bg-default">
+                    <MDBCardTitle>Assigned Tasks</MDBCardTitle>
+                  </MDBCardHeader>
+                  <MDBCardBody>
+                    <Table key='assigned' data={ this.getTableData() } />
+                  </MDBCardBody>
+                </MDBCard>
+              }
+              { this.state.delegated && 
+                <MDBCard>
+                  <MDBCardHeader className="bg-default">
+                    <MDBCardTitle>Delegated Tasks</MDBCardTitle>
+                  </MDBCardHeader>
+                  <MDBCardBody>
+                    <Table key='delegated' data={ this.getTableData() } />
+                  </MDBCardBody>
+                </MDBCard>
+              }
             </div>
           </div>
         </div>

@@ -39,10 +39,9 @@ export default class Login extends Component {
     // Login action
     const res = actions.login({ user, password })
     res.payload.then(res => {
-      // if (res.status.match(/successfully/i)) {
-      if (true) {
-        localStorage.setItem('token', 'res.token')
-        localStorage.setItem('user', '{"ds_name": "test"}')
+      if (res.status.match(/successfully/i)) {
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('user', res.user)
         this.setState({
           loggedIn: true
         })
@@ -76,7 +75,7 @@ export default class Login extends Component {
             <br/>
             <input type="password" placeholder="Password" name="password" value={ this.state.password } onChange={ this.onChange } />
             <br/>
-            <button className="login-btn btn-green" type="submit" >Sign in</button>
+            <button className="login-btn btn-blue" type="submit" >Sign in</button>
           </form>
         </div>
       </div>

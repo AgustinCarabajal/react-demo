@@ -33,13 +33,13 @@
   cursor: pointer;
 }
 
-.btn-green {
-  background-color: #3d843e;
+.btn-blue {
+  background-color: #007bff;
   padding: 10px 24px;
 }
 
-.btn-green:hover {
-  background-color: #4CAF50;
+.btn-blue:hover {
+  background-color: #0365ce;
 }
 
 input[type=text], input[type=password], select {
