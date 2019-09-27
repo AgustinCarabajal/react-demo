@@ -41,7 +41,7 @@ export default class Login extends Component {
     res.payload.then(res => {
       if (res.status.match(/successfully/i)) {
         localStorage.setItem('token', res.token)
-        localStorage.setItem('user', res.user)
+        localStorage.setItem('user', JSON.stringify(res.user))
         this.setState({
           loggedIn: true
         })
