@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+import Table from '../Table'
+
 class About extends Component {
   constructor(props) {
     super(props)
@@ -21,12 +23,32 @@ class About extends Component {
 
     this.state = {
       loggedIn,
-      user
+      user,
+      assigned: true,
+      delegated: false
     }
+
+    // Bind
+    this.setAssigned = this.setAssigned.bind(this)
+    this.setDelegated = this.setDelegated.bind(this)
   }
 
   click() {
     document.getElementById('wrapper').classList.toggle("toggled")
+  }
+
+  setAssigned() {
+    this.setState({
+      assigned: true,
+      delegated: false
+    })
+  }
+
+  setDelegated() {
+    this.setState({
+      assigned: false,
+      delegated: true
+    })
   }
 
   render() {
@@ -74,16 +96,20 @@ class About extends Component {
                 <h1 className="h2">Workflow</h1>
                 <div className="btn-toolbar mb-2 mb-md-0">
                   <div className="btn-group mr-2">
-                    <button className="btn btn-sm btn-primary" disabled>Assigned</button>
-                    <button className="btn btn-sm btn-default" disabled>Delegated</button>
+                    <button className="btn btn-sm btn-primary" onClick={ this.setAssigned }>Assigned</button>
+                    <button className="btn btn-sm btn-default" onClick={ this.setDelegated }>Delegated</button>
                   </div>
                 </div>
               </div>
-              <div className="loader">
-                <div className="spinner-border" role="status"></div>
-                <br />
-                <span className="">Connectivity issues in Cargill network</span>
-              </div>
+              { !this.state.assigned && !this.state.delegated && 
+                <div className="loader">
+                  <div className="spinner-border" role="status"></div>
+                  <br />
+                  <span className="">Connectivity issues in Cargill network</span>
+                </div> 
+              }
+              { this.state.assigned && <Table key='assigned' name="HOLA" /> }
+              { this.state.delegated && <Table key='delegated' name="CHAU" /> }
             </div>
           </div>
         </div>
