@@ -2,7 +2,8 @@ import axios from 'axios'
 
 // Actions
 const LOGIN_ACTION = 'LOGIN_ACTION'
-const LIBRARY_SHOW_BOOK = 'LIBRARY_SHOW_BOOK'
+const GET_ASSIGNATIONS_ACTION = 'GET_ASSIGNATIONS_ACTION'
+const GET_DELEGATIONS_ACTION = 'GET_DELEGATIONS_ACTION'
 
 export function login({ user, password }) {
   return {
@@ -25,12 +26,24 @@ export function login({ user, password }) {
   }
 }
 
-export function showBook() {
+export function get_assigned(id) {
   return {
-    type: LIBRARY_SHOW_BOOK,
-    payload: axios.get(`${process.env.REACT_APP_API_URL}/api/post`)
+    type: GET_ASSIGNATIONS_ACTION,
+    payload: axios.get(`${process.env.REACT_APP_API_URL}/assignations?id=${id}`)
       .then(response => {
-        console.log(response.data)
+        return response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+}
+
+export function get_delegated(id) {
+  return {
+    type: GET_DELEGATIONS_ACTION,
+    payload: axios.get(`${process.env.REACT_APP_API_URL}/delegations?id=${id}`)
+      .then(response => {
         return response.data
       })
       .catch(error => {
