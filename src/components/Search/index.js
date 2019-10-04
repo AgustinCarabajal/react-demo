@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import items from '../../data/menu'
+import queryString from 'query-string'
 
 import { FaUserAlt } from 'react-icons/fa'
 import logo from '../Global/images/logos/b2.png'
@@ -11,7 +12,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
-class Contact extends Component {
+import { Card } from 'react-bootstrap'
+
+class Search extends Component {
   constructor(props) {
     super(props)
     const token = localStorage.getItem('token')
@@ -33,6 +36,8 @@ class Contact extends Component {
   }
 
   render() {
+
+    const params = queryString.parse(this.props.location.search)
     if(!this.state.loggedIn) {
       return <Redirect to="/login" />
     }
@@ -74,36 +79,33 @@ class Contact extends Component {
         </nav>
         <div className="container-fluid">
           <br />
-            <div className="text-center">
-              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 className="h2">P&L Report</h1>
-                <div className="btn-toolbar mb-2 mb-md-0">
-                  <div className="btn-group mr-2">
-                    <button className="btn btn-sm btn-primary" disabled>Trend</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Comp</button>
-                  </div>
-                </div>
-              </div>
+            <div>
               <div className="row">
-                <div className="col-sm-6 ">
-                  <div className="btn-group mr-2">
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Trend</button>
-                    <button className="btn btn-sm btn-primary" disabled>Comp</button>
-                  </div>
+                <div className="col-md-8">
+                  <Card>
+                    <Card.Header><h5>{ params.t }</h5></Card.Header>
+                    <Card.Body>
+                      <h6>{ params.r }</h6>
+                      <span>{ params.t } Complete Budget</span>
+                    </Card.Body>
+                  </Card>
                 </div>
-                <div className="col-sm-6 ">
-                  <div className="btn-group mr-3">
-                    <button className="btn btn-sm btn-primary" disabled>Actual</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Budget</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Forecast</button>
-                  </div>
+                <div className="col-md-4">
+                  <Card>
+                    <Card.Header><h6>Delegated To:</h6></Card.Header>
+                    <Card.Body>
+                      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <span>{ params.n }</span> <br />
+                      </div>
+                      <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
+                        <span>Direct Delegations made from this Task</span>
+                        <p>1</p>
+                        <span>Total (Delegations & Subdelegations) made from this Task</span>
+                        <p>1</p>
+                      </div>
+                    </Card.Body>
+                  </Card>
                 </div>
-              </div>
-              <br />
-              <div className="loader">
-                <div className="spinner-border" role="status"></div>
-                <br />
-                <span className="">Connectivity issues in Cargill network</span>
               </div>
             </div>
           </div>
@@ -113,4 +115,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact
+export default Search

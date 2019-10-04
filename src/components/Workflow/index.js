@@ -4,6 +4,7 @@ import items from '../../data/menu'
 import Actions from '../Actions'
 
 import * as action from '../../redux/actions'
+import logo from '../Global/images/logos/b2.png'
 
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBCardTitle } from 'mdbreact'
 import { FaUserAlt } from 'react-icons/fa'
@@ -72,6 +73,35 @@ class About extends Component {
 
     const res = action.get_delegated(this.state.user.id_user)
     res.payload.then(res => {
+      const rows = []
+      if (res === typeof Array) {
+        for (const item of res) {
+          rows.push({
+            route: item.ds_route,
+            task: item.ds_task_name,
+            delegated: item.ds_user_del,
+            actions: <Actions
+              delegated='true'
+              id={ item.id_delegation }
+              task={ item.ds_task_name }
+              route={ item.ds_route }
+              name={ item.ds_user_del } />
+          })
+        }
+      } else {
+        rows.push({
+          route: res.ds_route,
+          task: res.ds_task_name,
+          delegated: res.ds_user_del,
+          actions: <Actions
+            delegated='true'
+            id={ res.id_delegation }
+            task={ res.ds_task_name }
+            route={ res.ds_route }
+            name={ res.ds_user_del } />
+        })
+      }
+
       this.setState({
         dataDelegated: {
           columns: [
@@ -100,14 +130,7 @@ class About extends Component {
               width: 100
             }
           ],
-          rows: [
-            {
-              route: res.ds_route,
-              task: res.ds_task_name,
-              delegated: res.ds_user_del,
-              actions: <Actions />
-            }
-          ]
+          rows: rows
         }
       })
     })
@@ -120,6 +143,34 @@ class About extends Component {
 
     const res = action.get_assigned(this.state.user.id_user)
     res.payload.then(res => {
+      const rows = []
+      if (res === typeof Array) {
+        for (const item of res) {
+          rows.push({
+            route: item.ds_route,
+            task: item.ds_task_name,
+            delegated: item.ds_function,
+            actions: <Actions
+              assigned='true'
+              id ={ item.id_delegation }
+              task={ item.ds_task_name }
+              route={ item.ds_route }
+              name={ item.ds_user_del } />
+          })
+        }
+      } else {
+        rows.push({
+          route: res.ds_route,
+          task: res.ds_task_name,
+          delegated: res.ds_function,
+          actions: <Actions
+            assigned='true'
+            id ={ res.id_delegation }
+            task={ res.ds_task_name }
+            route={ res.ds_route }
+            name={ res.ds_user_del } />
+        })
+      }
       this.setState({
         dataAssigned: {
           columns: [
@@ -148,14 +199,7 @@ class About extends Component {
               width: 100
             }
           ],
-          rows: [
-            {
-              route: res.ds_route,
-              task: res.ds_task_name,
-              function: res.ds_function,
-              actions: <Actions />
-            }
-          ]
+          rows: rows
         }
       })
     })
@@ -171,7 +215,7 @@ class About extends Component {
     return (
       <div className="d-flex" id="wrapper">
       <div className="bg-dark border-right" id="sidebar-wrapper">
-        <div className="sidebar-heading title-light">Cargill</div>
+        <div className="sidebar-heading title-light"><img alt="logo" src={ logo } /></div>
         <div className="list-group list-group-flush item-light">
           { items && items.map((item, key) =>
             <Link to={ item.url } key={ key } className="list-group-item list-group-item-action bg-dark item-light">{ item.title }</Link>

@@ -10,8 +10,9 @@ import '../Global/css/Main.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
+import { Form, Card } from 'react-bootstrap'
 
-class Contact extends Component {
+class Delegate extends Component {
   constructor(props) {
     super(props)
     const token = localStorage.getItem('token')
@@ -75,36 +76,38 @@ class Contact extends Component {
         <div className="container-fluid">
           <br />
             <div className="text-center">
-              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 className="h2">P&L Report</h1>
-                <div className="btn-toolbar mb-2 mb-md-0">
-                  <div className="btn-group mr-2">
-                    <button className="btn btn-sm btn-primary" disabled>Trend</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Comp</button>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-sm-6 ">
-                  <div className="btn-group mr-2">
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Trend</button>
-                    <button className="btn btn-sm btn-primary" disabled>Comp</button>
-                  </div>
-                </div>
-                <div className="col-sm-6 ">
-                  <div className="btn-group mr-3">
-                    <button className="btn btn-sm btn-primary" disabled>Actual</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Budget</button>
-                    <button className="btn btn-sm btn-outline-secondary" disabled>Forecast</button>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="loader">
-                <div className="spinner-border" role="status"></div>
-                <br />
-                <span className="">Connectivity issues in Cargill network</span>
-              </div>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Card Title</Card.Title>
+                  <Form>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                      <Form.Label>Task Name</Form.Label>
+                      <Form.Control type="email" placeholder="name@example.com" />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlSelect1">
+                      <Form.Label>Delegate To</Form.Label>
+                      <Form.Control as="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlSelect1">
+                      <Form.Label>Route</Form.Label>
+                      <Form.Control as="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form>
+              
+                </Card.Body>
+              </Card>
             </div>
           </div>
         </div>
@@ -113,4 +116,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact
+export default Delegate

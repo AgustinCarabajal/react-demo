@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import items from '../../data/menu'
 
 import { FaUserAlt } from 'react-icons/fa'
+import logo from '../../components/Global/images/logos/b2.png'
 
 import '../../components/Global/css/Main.css'
 // Bootstrap
@@ -13,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
-import logo from '../../components/Global/images/logos/Cargill_R_V_black_2c.png'
+import main from '../../components/Global/images/logos/Cargill_R_V_black_2c.png'
 
 class Home extends Component {
   
@@ -56,7 +57,7 @@ class Home extends Component {
         // <div className="App">
         <div className="d-flex" id="wrapper">
           <div className="bg-dark border-right" id="sidebar-wrapper">
-            <div className="sidebar-heading title-light">Cargill</div>
+            <div className="sidebar-heading title-light"><img alt="logo" src={ logo } /></div>
             <div className="list-group list-group-flush item-light">
               { items && items.map((item, key) =>
                 <Link to={ item.url } key={ key } className="list-group-item list-group-item-action bg-dark item-light">{ item.title }</Link>
@@ -93,7 +94,7 @@ class Home extends Component {
               <br />
               <div className="card text-center">
                 <div className="card-body">
-                  <img className="login-image" src={logo} alt="babylon-layout" />
+                  <img className="login-image" src={main} alt="babylon-layout" />
                   <h1 className="display-5">Welcome to CID 2.0</h1>
                   <div className="row">
                     <div className="col-md-6">
