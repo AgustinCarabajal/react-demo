@@ -1,12 +1,10 @@
-import React from 'react';
-import Card from '../../../Common/Components/Card';
-
 export const GET_DATA_START = 'GET_DATA_START';
 export const GET_DATA_FAIL = 'GET_DATA_FAIL';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const SUBMIT_START = 'SUBMIT_START';
 export const SET_VALUE = 'SET_VALUE';
 export const SHOW_CARDS = 'SHOW_CARDS';
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 let globalDispatch;
 let globalState;
@@ -48,12 +46,6 @@ export function setField(field, value) {
   };
 }
 
-function mapCards(list) {
-  return list.map(item => (
-    <Card key={item.name} item={item} />
-  ))
-}
-
 export function handleSubmit() {
   return (dispatch, getState) => {
     dispatch({ type: SUBMIT_START });
@@ -66,6 +58,13 @@ export function handleSubmit() {
     if (result) {
       // result = mapCards(result)
       dispatch({ type: SHOW_CARDS, result })
+      document.getElementsByClassName('li').className += ' show'
     }
+  }
+}
+
+export function deleteItem(index) {
+  return (dispatch) => {
+    dispatch({ type: DELETE_ITEM, index });
   }
 }

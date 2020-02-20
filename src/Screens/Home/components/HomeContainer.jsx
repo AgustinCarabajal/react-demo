@@ -6,6 +6,7 @@ import {
     handleSubmit,
     getData,
     setField,
+    deleteItem,
 } from '../actions/Actions'
 
 const mapStateToProps = (state) => {
@@ -23,6 +24,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     setField: (field, value) => {
         dispatch(setField(field, value));
+    },
+    deleteItem: (index) => {
+        dispatch(deleteItem(index));
     },
 });
 

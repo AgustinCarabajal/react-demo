@@ -4,46 +4,20 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.5.5",
-    "@material-ui/core": "^4.4.2",
     "axios": "^0.19.2",
-    "bootstrap": "^4.3.1",
-    "clsx": "^1.0.4",
-    "easymde": "^2.8.0",
-    "file-saver": "^2.0.2",
+    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
-    "lodash": "^4.17.11",
-    "moment": "^2.24.0",
-    "papaparse": "^5.0.0",
-    "pegjs": "^0.10.0",
     "react": "^16.12.0",
-    "react-autosuggest": "^9.4.3",
-    "react-bootstrap": "^1.0.0-beta.8",
-    "react-btn-checkbox": "0.0.2",
-    "react-contextmenu": "^2.11.0",
-    "react-copy-to-clipboard": "^5.0.2",
-    "react-day-picker": "^7.4.0",
     "react-dom": "^16.8.6",
-    "react-file-picker": "0.0.6",
-    "react-flexbox-grid": "^2.1.2",
-    "react-fontawesome": "^1.6.1",
     "react-icons": "^3.7.0",
     "react-redux": "^7.0.2",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0",
-    "react-search-field": "^1.0.0",
-    "react-simplemde-editor": "^4.1.0",
-    "react-table": "^6.10.3",
-    "react-tabs": "^3.0.0",
-    "react-timeago": "^4.4.0",
-    "react-tooltip": "^3.11.1",
+    "react-scripts": "^3.4.0",
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
     "redux-localstorage": "^0.4.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "remove": "^0.1.5",
-    "url-loader": "^3.0.0",
-    "xlsx": "^0.15.1",
     "yarn": "^1.15.2"
   },
   "transform": {
@@ -74,7 +48,11 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    }
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/src/Images/*",
+      "<rootDir>/src/Common/*"
+    ]
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.3",
@@ -98,7 +76,6 @@
     "node-sass": "^4.13.1",
     "redux-mock-store": "^1.5.4",
     "sass-loader": "^8.0.2",
-    "svg-inline-loader": "^0.8.0",
     "webpack": "^4.41.6"
   }
 }

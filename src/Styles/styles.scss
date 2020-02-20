@@ -1,3 +1,5 @@
+$total-items: 5;
+
 $bg-image: '../Images/bg.jpg';
 $font-stack: 'Open Sans', sans-serif;
 $second-color : #707070;
@@ -103,6 +105,114 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+// Card List
+.card-container {
+    background: transparent;
+    // border: 1px solid black;
+    height: 60vh;
+    overflow: scroll;
+}
+
+// Card
+
+.card {
+    line-height: 5;
+    background: #ffffff22;
+    margin: 10px 40px;
+    padding: 0 10px;
+    color: black;
+    height: 80px;
+    font-size: 15px;
+}
+
+.card-body {
+    text-align: left;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 1;
+    color: #ffffffaa;
+    margin-left: 10px;
+}
+
+.card-detail {
+    opacity: 0;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 20px;
+    line-height: 0;
+    color: #ffffff88;
+    margin-left: 10px;
+}
+
+.card:hover .button-primary {
+    transform: translate(-10px, 0);
+    font-size: 16px;
+    color: #ffffffee;
+}
+
+.card:hover .card-detail {
+    transition: opacity .25s ease-in-out;
+    opacity: 1;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15);
+    background: #ffffff32;
+}
+
+.card:hover .card-body {
+    color: #ffffffee;
+    transition: font-size 0.15s;
+    font-size: 20px;
+}
+
+.card:hover img {
+    opacity: 0.6;
+}
+
+.button-primary {
+    float: right;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    background-color: transparent;
+    color: #ffffff99;
+    font-size: 15px;
+    transition: .25s;
+}
+
+@media only screen and (max-width: 770px) {
+    .card img {
+        margin: 0;
+    }
+
+    .button-primary {
+        margin-top: 10px;
+        font-size: 10px;
+    }
+
+    .card:hover .button-primary {
+        transform: translate(-10px, 0);
+        font-size: 12px;
+        color: #ffffffee;
+    }
+    .card-body {
+        font-size: 20px;
+    }
+
+    .card-detail {
+        opacity: 1;
+    }
+  }
+
+.card img {
+    width: 50px;
+    // border-radius: 50px;
+    // margin: 0 15px;
+    opacity: 0.3;
 }
 
 /* End style */

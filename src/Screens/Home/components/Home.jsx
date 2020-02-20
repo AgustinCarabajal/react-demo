@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import CardList from '../../../Common/Components/CardList';
-import Card from '../../../Common/Components/Card';
 
 function Home(props) {
 
@@ -34,17 +33,7 @@ function Home(props) {
           onChange={(e) => props.setField('searchField', e.target.value)}
         />
       </div>
-
-      {/* {props.home.cards.length > 0 && ( <CardList cards={props.home.cards} /> )} */}
-      {props.home.cards.length > 0 && (
-        <div>
-          {props.home.cards.forEach(element => {
-            return (
-              <Card item={element} />
-            )
-          })}
-        </div>
-      )}
+      {props.home.cards.length > 0 && ( <CardList delete={props.deleteItem} cards={props.home.cards} /> )}
 
     </div>
   );
