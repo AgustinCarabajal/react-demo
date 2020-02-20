@@ -24,13 +24,18 @@ function Home(props) {
           className="search__input"
           type="text"
           placeholder="Search"
-          onKeyPress={(event) => {
-            if(event.key === 'Enter'){
+          value={props.home.searchField}
+          onChange={(e) => {
+              props.setField('searchField', e.target.value);
               props.handleSubmit()
             }
-          }}
-          value={props.home.searchField}
-          onChange={(e) => props.setField('searchField', e.target.value)}
+          }
+          // onKeyPress={(event) => {
+          //   if(event.key === 'Enter'){
+          //     props.handleSubmit()
+          //   }
+          // }}
+          // onChange={(e) => props.setField('searchField', e.target.value)}
         />
       </div>
       {props.home.cards.length > 0 && ( <CardList delete={props.deleteItem} cards={props.home.cards} /> )}
