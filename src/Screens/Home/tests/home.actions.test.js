@@ -1,6 +1,5 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import nock from 'nock';
 import {
   getData,
 } from '../actions/Actions';
@@ -18,28 +17,25 @@ const testStore = (initialState, extraField) => {
 
 describe('Home functionalities', () => {
   describe('Execute home GETs', () => {
+    
     afterEach(() => {
-      nock.cleanAll();
+      global.fetch.mockClear();
     });
 
     // Test GetData without filters and no order
     it('Should fetch data successfully', async () => {
-      nock('https://swapi.co')
-        .persist()
-        .get(/\/api\/people\/.*/)
-        .reply(200, { data: [] });
+      const mockFetchPromise = Promise.resolve({
+        json: () => { return {results: []} },
+      });
+
+      global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
 
       const store = testStore(getInitialState());
-      store.dispatch(getData);
+      store.dispatch(getData());
 
       const expected = {
         type: 'GET_DATA_SUCCESS',
-        data: [],
-        credentialCount: 0,
-        rowsPerPage: 40,
-        page: 1,
-        sorting: undefined,
-        sortingString: undefined,
+        data: []
       };
 
       expect(await getAction(store, 'GET_DATA_START')).toEqual({ type: 'GET_DATA_START' });
@@ -47,16 +43,18 @@ describe('Home functionalities', () => {
     });
 
     it('Should fetch data and fail', async () => {
-      nock('https://swapi.co')
-        .persist()
-        .get(/\/api\/people\/.*/)
-        .reply(401);
+
+      const mockFetchPromise = Promise.resolve({
+        json: () => mockJsonPromise,
+      });
+
+      global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
 
       const store = testStore(getInitialState());
-      store.dispatch(getData);
+      store.dispatch(getData());
 
       expect(await getAction(store, 'GET_DATA_START')).toEqual({ type: 'GET_DATA_START' });
-      expect(await getAction(store, 'GET_DATA_FAIL')).toEqual({ type: 'GET_DATA_FAIL', data: 'An error has occurred.' });
+      expect(await getAction(store, 'GET_DATA_FAIL')).toEqual({ type: 'GET_DATA_FAIL', data: 'Failed to obtain data.' });
     });
   });
 });

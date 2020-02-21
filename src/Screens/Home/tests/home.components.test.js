@@ -31,7 +31,7 @@ describe('Home component', () => {
     it('Should render without errors', () => {
       const props = {
         home: {
-          ...getInitialState(),
+          ...getInitialState().home,
         },
       };
       component = homeTestComponent(props);
