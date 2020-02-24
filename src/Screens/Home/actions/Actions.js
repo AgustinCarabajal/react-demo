@@ -31,7 +31,7 @@ export function getData() {
     dispatch({ type: GET_DATA_START });
 
     // fetch(process.env.API_URL)
-    fetch('https://swapi.co/api/people/')
+    fetch('https://swapi.co/api/people/', { mode: 'no-cors' })
     .then(res => res.json())
     .then((data) => {
       getDataSuccedCallback(data)

@@ -10,9 +10,9 @@ function Home(props) {
 
   return (
     <div className="container">
-      <div class="stars"></div>
-      <div class="twinkling"></div>
-      <div class="clouds"></div>
+      <div className="stars"></div>
+      <div className="twinkling"></div>
+      <div className="clouds"></div>
       {props.home.isFetching && (
         <div className="spinner-container">
           <div className="spinner-border custom-spinner" role="status">
