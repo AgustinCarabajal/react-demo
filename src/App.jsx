@@ -13,7 +13,6 @@ class App extends Component {
 
   componentDidMount() {
     errorHandler(this.props);
-    // sessionValidator(this.props)
   }
 
   render() {
